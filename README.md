@@ -1,59 +1,41 @@
-# CrudGameSystem
+=======
+# 🚀 Sistema de Gerenciamento CRUD Completo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Este é um sistema de gerenciamento web completo, desenvolvido com **Angular** no frontend, projetado para oferecer uma interface intuitiva e eficiente para a administração de diversas entidades. O projeto encapsula as operações CRUD (Criação, Leitura, Atualização e Exclusão) para dados cruciais, garantindo controle total sobre as informações.
 
-## Development server
+## ✨ Funcionalidades Principais:
 
-To start a local development server, run:
+* **Dashboard Interativo:** Uma visão geral dinâmica com contagens em tempo real para Prêmios, Participantes, Patrocinadores, Inscrições, Jogos e Categorias.
+* **Painel Lateral de Navegação:** Facilita o acesso rápido e organizado a todos os módulos de gerenciamento.
+* **Módulos CRUD Completos para:**
+    * Prêmios
+    * Participantes
+    * Patrocinadores
+    * Inscrições
+    * Jogos
+    * Categorias
+* **Operações de Visualização, Edição e Exclusão** 
 
-```bash
-ng serve
-```
+## 🛠️ Tecnologias Utilizadas:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+* **Frontend:**
+    * Angular
+    * TypeScript
+    * HTML
+    * CSS
+    * Bootstrap
+    * Angular Material
 
-## Code scaffolding
+## ⚙️ Como o Sistema Funciona:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+O sistema opera com uma arquitetura cliente-servidor, onde o frontend (desenvolvido em Angular) consome e manipula dados de uma API (backend) através de serviços.
 
-```bash
-ng generate component component-name
-```
+Cada módulo de gerenciamento (como Patrocinadores, Participantes, etc.) possui seu próprio componente Angular responsável por:
+* Exibir dados em tabelas dinâmicas.
+* Permitir a criação de novos registros.
+* Habilitar a atualização de informações existentes.
+* Gerenciar a exclusão de dados.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+As operações de dados, como a exclusão de um item, atualizam a interface em tempo real após a comunicação bem-sucedida com o backend.
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
