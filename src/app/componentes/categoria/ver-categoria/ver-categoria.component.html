@@ -1,0 +1,112 @@
+<div class="mat-elevation-z8" style="max-width: 900px; margin: 40px auto; padding: 30px; background: white; border-radius: 12px;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary mb-0">Detalhes da categoria</h2>
+    <a routerLink="/categoria" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+
+  @if (categoria) {
+    <div class="row gy-3">
+      <!-- ID -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Id:</label>
+        <p class="form-control bg-light">{{ categoria.id }}</p>
+      </div>
+
+      <!-- Nome -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Nome:</label>
+        <p class="form-control bg-light">{{ categoria.nome }}</p>
+      </div>
+
+      <!-- Status -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Status:</label>
+        <p class="form-control bg-light">{{ CategoriaStatus[categoria.status] }}</p>
+      </div>
+
+      <!-- Jogos -->
+      <div class="col-12 mt-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-light">
+            <h5 class="card-title mb-0">Jogos:</h5>
+          </div>
+
+          <div class="card-body">
+            @if (categoria.jogos && categoria.jogos.length > 0) {
+              <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Id</th>
+                      <th>Nome</th>
+                      <th>Status</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let jogo of categoria.jogos"
+                        [class.table-primary]="jogoSelecionado?.id === jogo.id">
+                      <td class="fw-semibold">{{ jogo.id }}</td>
+                      <td>{{ jogo.nome }}</td>
+                      <td>{{ JogoStatus[jogo.status] }}</td>
+                      <td>
+                        <button (click)="selecionarJogo(jogo)" class="btn btn-sm btn-primary">
+                          Ver Inscrições
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Seção para mostrar as inscrições do jogo selecionado -->
+              @if (jogoSelecionado) {
+                <div class="mt-4">
+                  <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">Inscrições do Jogo: {{ jogoSelecionado.nome }}</h5>
+                  </div>
+                  @if (carregandoInscricoes) {
+                    <div class="text-center my-3">
+                      <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Carregando...</span>
+                      </div>
+                    </div>
+                  } @else if (inscricoesDoJogoSelecionado.length > 0) {
+                    <div class="table-responsive mt-3">
+                      <table class="table table-sm table-hover">
+                        <thead>
+                          <tr>
+                            <th>Id</th>
+                            <th>Data</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let inscricao of inscricoesDoJogoSelecionado">
+                            <td>{{ inscricao.id }}</td>
+                            <td>{{ inscricao.data | date:'dd/MM/yyyy' }}</td>
+                            <td>{{ InscricaoStatus[inscricao.status] }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  } @else {
+                    <div class="alert alert-info mt-3">
+                      Nenhuma inscrição encontrada para este jogo.
+                    </div>
+                  }
+                </div>
+              }
+            } @else {
+              <div class="alert alert-info mb-0">
+                Nenhum jogo encontrado para esta categoria.
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  }
+</div>

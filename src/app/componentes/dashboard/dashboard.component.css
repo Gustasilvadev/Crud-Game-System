@@ -1,0 +1,121 @@
+.dashboard-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+/* Grid de cards */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.premio-card {
+  width: 250px;
+  border-radius: 0;
+  background: white;
+  box-shadow: none;
+  border: 1px solid #eaeaea;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.premio-card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding: 15px;
+  background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-header::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(30deg);
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.card-title i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.card-body {
+  padding: 25px 15px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-count {
+  font-size: 3.2rem;
+  font-weight: 300;
+  color: #2c3e50;
+  margin: 0;
+  line-height: 1;
+}
+
+.card-label {
+  color: #95a5a6;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.card-footer {
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid #f0f0f0;
+}
+
+.card-button {
+  display: inline-block;
+  padding: 8px 0;
+  width: 100%;
+  background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.card-button:hover {
+  background: linear-gradient(135deg, #476481 0%, #79a1e7 100%);
+}
+
+.card-loading {
+  padding: 30px 0;
+  text-align: center;
+}
+

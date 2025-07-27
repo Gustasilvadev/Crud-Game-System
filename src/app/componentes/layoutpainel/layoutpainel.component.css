@@ -1,0 +1,75 @@
+/* Layout principal */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Painel lateral */
+.crud-panel {
+  background-color: #2c3e50;
+  color: white;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Título do painel */
+.panel-title {
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #34495e;
+}
+
+/* Container dos botões */
+.button-container {
+  padding: 15px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* Estilo dos botões */
+.panel-button {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  color: #ecf0f1;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #34495e;
+    transform: translateX(3px);
+  }
+
+  &.active {
+    background-color: #3498db;
+    font-weight: 500;
+  }
+}
+
+/* Ícones */
+.panel-button i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* Conteúdo principal */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 20px;
+  min-height: 100vh;
+}

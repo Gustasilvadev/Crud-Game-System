@@ -1,0 +1,88 @@
+<div class="mat-elevation-z8" style="max-width: 900px; margin: 40px auto; padding: 30px; background: white; border-radius: 12px;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary mb-0">Editar participante</h2>
+    <a routerLink="/participante" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <!-- Nome -->
+    <div class="form-group mb-3">
+      <label class="form-label fw-bold">Nome:</label>
+      <input
+        formControlName="nome"
+        id="nome"
+        type="text"
+        class="form-control"
+        placeholder="Digite o nome do patrocinador">
+      <div *ngIf="f['nome'].touched && f['nome'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['nome'].errors?.['required']">O nome do participante é necessário.</small>
+      </div>
+    </div>
+
+      <!-- Email -->
+    <div class="form-group mb-3">
+      <label class="form-label fw-bold">Email:</label>
+      <input
+        formControlName="email"
+        id="email"
+        type="text"
+        class="form-control"
+        placeholder="Digite o email do patrocinador">
+      <div *ngIf="f['email'].touched && f['email'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['email'].errors?.['required']">O email do participante é necessário.</small>
+      </div>
+    </div>
+
+    <!-- identificacao -->
+    <div class="form-group mb-3">
+      <label class="form-label fw-bold">Identificacao:</label>
+      <input
+        formControlName="identificacao"
+        id="identificacao"
+        type="text"
+        class="form-control"
+        placeholder="Digite a identificacao">
+      <div *ngIf="f['identificacao'].touched && f['identificacao'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['identificacao'].errors?.['required']">A identificacao é necessária.</small>
+      </div>
+    </div>
+
+        <!-- endereco -->
+    <div class="form-group mb-3">
+      <label class="form-label fw-bold">Endereco:</label>
+      <input
+        formControlName="endereco"
+        id="endereco"
+        type="text"
+        class="form-control"
+        placeholder="Digite a endereco">
+      <div *ngIf="f['endereco'].touched && f['endereco'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['endereco'].errors?.['required']">O endereco é necessário.</small>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="form-group mb-4">
+      <label class="form-label fw-bold">Status:</label>
+      <select
+        formControlName="status"
+        id="status"
+        class="form-select">
+        <option value="">Selecione</option>
+        <option *ngFor="let status of statusOptions" [value]="status.id">
+          {{ status.descricao }}
+        </option>
+      </select>
+      <div *ngIf="f['status'].touched && f['status'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['status'].errors?.['required']">Insira o status do participante.</small>
+      </div>
+    </div>
+
+    <!-- Botão -->
+    <div class="d-grid">
+      <button class="btn btn-primary btn-lg" type="submit" [disabled]="!form.valid">Salvar</button>
+    </div>
+  </form>
+</div>
+

@@ -1,0 +1,45 @@
+<div class="mat-elevation-z8" style="max-width: 900px; margin: 40px auto; padding: 30px; background: white; border-radius: 12px;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary mb-0">Detalhes do prêmio</h2>
+    <a routerLink="/premio" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+
+  @if (premio) {
+    <!-- Id -->
+    <div class="row gy-3">
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Id:</label>
+        <p class="form-control bg-light">{{ premio.id }}</p>
+      </div>
+
+      <!-- Descricao -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Descrição:</label>
+        <p class="form-control bg-light">{{ premio.descricao }}</p>
+      </div>
+
+      <!-- Ordem premiacao -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Ordem de premiação:</label>
+        <p class="form-control bg-light">{{ premio.ordemPremiacao }}</p>
+      </div>
+
+      <!-- Categoria -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Categoria:</label>
+        <p class="form-control bg-light">{{ premio.categoria }}</p>
+      </div>
+
+      <!-- Status -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Status:</label>
+        <p class="form-control bg-light">{{ premio.status }}</p>
+      </div>
+    </div>
+  } @else {
+    <div class="text-center py-4">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p class="mt-3">Carregando prêmio...</p>
+    </div>
+  }
+</div>

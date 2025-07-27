@@ -1,0 +1,154 @@
+  <div class="header">
+    <h1 class="header-title">
+      <i class="material-icons">dashboard</i>
+      Dashboard
+    </h1>
+    <p class="dashboard-subtitle">Visão geral do sistema</p>
+  </div>
+
+<div class="dashboard-grid">
+
+  <!-- Card de Prêmios -->
+  <div class="card-container">
+    <div class="premio-card">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="material-icons">emoji_events</i>
+          Prêmios
+        </h3>
+      </div>
+
+      <div class="card-body">
+        <div *ngIf="!loadingPremios; else loadingTemplate" class="card-info">
+          <span class="card-count">{{totalPremios}}</span>
+          <span class="card-label">Prêmios cadastrados</span>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <a routerLink="/premio" class="card-button">Gerenciar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card de Participantes -->
+  <div class="card-container">
+    <div class="premio-card">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="material-icons">people</i>
+          Participantes
+        </h3>
+      </div>
+
+      <div class="card-body">
+        <div *ngIf="!loadingParticipantes; else loadingTemplate" class="card-info">
+          <span class="card-count">{{totalParticipantes}}</span>
+          <span class="card-label">Participantes cadastrados</span>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <a routerLink="/participante" class="card-button">Gerenciar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card de Patrocinadores -->
+  <div class="card-container">
+    <div class="premio-card">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="material-icons">business</i>
+          Patrocinadores
+        </h3>
+      </div>
+
+      <div class="card-body">
+        <div *ngIf="!loadingPatrocinadores; else loadingTemplate" class="card-info">
+          <span class="card-count">{{totalPatrocinadores}}</span>
+          <span class="card-label">Patrocinadores cadastrados</span>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <a routerLink="/patrocinador" class="card-button">Gerenciar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card de Inscrições -->
+  <div class="card-container">
+    <div class="premio-card">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="material-icons">how_to_reg</i>
+          Inscrições
+        </h3>
+      </div>
+
+      <div class="card-body">
+        <div *ngIf="!loadingInscricoes; else loadingTemplate" class="card-info">
+          <span class="card-count">{{totalInscricoes}}</span>
+          <span class="card-label">Inscrições realizadas</span>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <a routerLink="/inscricao" class="card-button">Gerenciar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card de Jogos -->
+  <div class="card-container">
+    <div class="premio-card">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="material-icons">sports_esports</i>
+          Jogos
+        </h3>
+      </div>
+
+      <div class="card-body">
+        <div *ngIf="!loadingJogos; else loadingTemplate" class="card-info">
+          <span class="card-count">{{totalJogos}}</span>
+          <span class="card-label">Jogos cadastrados</span>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <a routerLink="/jogo" class="card-button">Gerenciar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card de Categorias -->
+  <div class="card-container">
+    <div class="premio-card">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="material-icons">category</i>
+          Categorias
+        </h3>
+      </div>
+
+      <div class="card-body">
+        <div *ngIf="!loadingCategorias; else loadingTemplate" class="card-info">
+          <span class="card-count">{{totalCategorias}}</span>
+          <span class="card-label">Categorias cadastradas</span>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <a routerLink="/categoria" class="card-button">Gerenciar</a>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loadingTemplate>
+    <div class="card-loading">
+      <mat-spinner diameter="30"></mat-spinner>
+    </div>
+  </ng-template>
+</div>

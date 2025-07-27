@@ -1,0 +1,59 @@
+<div class="mat-elevation-z8" style="max-width: 900px; margin: 40px auto; padding: 30px; background: white; border-radius: 12px;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary mb-0">Criar novo patrocinador</h2>
+    <a routerLink="/patrocinador" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <!-- Nome -->
+    <div class="form-group mb-3">
+      <label class="form-label fw-bold">Nome:</label>
+      <input
+        formControlName="nome"
+        id="nome"
+        type="text"
+        class="form-control"
+        placeholder="Digite o nome do patrocinador">
+      <div *ngIf="f['nome'].touched && f['nome'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['nome'].errors?.['required']">O nome do patrocinador é necessário.</small>
+      </div>
+    </div>
+
+    <!-- Representante Nome -->
+    <div class="form-group mb-3">
+      <label class="form-label fw-bold">Nome do representante:</label>
+      <input
+        formControlName="representanteNome"
+        id="representanteNome"
+        type="text"
+        class="form-control"
+        placeholder="Digite o nome do representante">
+      <div *ngIf="f['representanteNome'].touched && f['representanteNome'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['representanteNome'].errors?.['required']">O nome do representante é necessário.</small>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="form-group mb-4">
+      <label class="form-label fw-bold">Status:</label>
+      <select
+        formControlName="status"
+        id="status"
+        class="form-select">
+        <option value="">Selecione</option>
+        <option *ngFor="let status of statusOptions" [value]="status.id">
+          {{ status.descricao }}
+        </option>
+      </select>
+      <div *ngIf="f['status'].touched && f['status'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['status'].errors?.['required']">Insira o status do patrocinador.</small>
+      </div>
+    </div>
+
+    <!-- Botão -->
+    <div class="d-grid">
+      <button class="btn btn-primary btn-lg" type="submit" [disabled]="!form.valid">Salvar</button>
+    </div>
+  </form>
+</div>

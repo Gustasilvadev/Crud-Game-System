@@ -1,0 +1,80 @@
+  <div class="dashboard-header">
+    <h1 class="dashboard-title">
+      <i class="material-icons">emoji_events</i>
+      Prêmios
+    </h1>
+    <p class="dashboard-subtitle">Visão dos prêmios</p>
+  </div>
+
+<div class="mat-elevation-z8" style=" margin: 50px auto; padding: 20px;">
+
+      <div style="margin: 0 auto; text-align: left">
+        <a routerLink="/criar-premio" class="btn btn-success m-3 d-inline-flex align-items-center">
+          <i class="material-icons me-2">add_circle_outline</i>
+          Criar novo prêmio
+        </a>
+      </div>
+
+  <table mat-table [dataSource]="premio" class="mat-table" style="width: 100%;">
+
+    <!-- ID -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Descricao -->
+    <ng-container matColumnDef="descricao">
+      <th mat-header-cell *matHeaderCellDef> Descrição </th>
+      <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+    </ng-container>
+
+    <!-- Ordem premiacao -->
+    <ng-container matColumnDef="ordemPremiacao">
+      <th mat-header-cell *matHeaderCellDef> Ordem Premiação </th>
+      <td mat-cell *matCellDef="let element"> {{element.ordemPremiacao}} </td>
+    </ng-container>
+
+    <!-- Categoria -->
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef> Categoria </th>
+      <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
+    </ng-container>
+
+    <!-- Status -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- Opções -->
+    <ng-container matColumnDef="opcoes">
+      <th mat-header-cell *matHeaderCellDef> Opções </th>
+      <td mat-cell *matCellDef="let element">
+
+        <!-- Botão Ver -->
+        <a [routerLink]="['/ver-premio', element.id]" class="btn btn-info btn-sm me-1 mb-1" title="Visualizar">
+          <i class="material-icons" style="color: black; font-size: 18px;">visibility</i>
+        </a>
+
+        <!-- Botão Editar -->
+        <a [routerLink]="['/atualizar-premio', element.id]" class="btn btn-primary btn-sm me-1 mb-1" title="Editar">
+          <i class="material-icons" style="color: black; font-size: 18px;">edit</i>
+        </a>
+
+        <!-- Botão Apagar -->
+        <button type="button" (click)="apagar(element.id)" class="btn btn-danger btn-sm mb-1" title="Excluir">
+          <i class="material-icons" style="color: black; font-size: 18px;">delete</i>
+        </button>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>
+
+
+

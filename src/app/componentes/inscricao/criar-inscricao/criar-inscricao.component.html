@@ -1,0 +1,75 @@
+<div class="mat-elevation-z8" style="max-width: 900px; margin: 40px auto; padding: 30px; background: white; border-radius: 12px;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary mb-0">Criar nova inscrição</h2>
+    <a routerLink="/inscricao" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <!-- data -->
+    <div class="form-group mb-3">
+      <label class="form-label fw-bold">Data:</label>
+      <input
+        formControlName="data"
+        id="data"
+        type="text"
+        class="form-control"
+        placeholder="Digite a data da inscrição">
+      <div *ngIf="f['data'].touched && f['data'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['data'].errors?.['required']">A data de inscrição necessário.</small>
+      </div>
+    </div>
+
+     <!-- Status -->
+    <div class="form-group mb-4">
+      <label class="form-label fw-bold">Status:</label>
+      <select
+        formControlName="status"
+        id="status"
+        class="form-select">
+        <option value="">Selecione</option>
+        <option *ngFor="let status of statusOptions" [value]="status.id">
+          {{ status.descricao }}
+        </option>
+      </select>
+      <div *ngIf="f['status'].touched && f['status'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['status'].errors?.['required']">Insira o status da inscrição.</small>
+      </div>
+    </div>
+
+    <!-- participanteId -->
+    <div class="form-group mb-3">
+      <label class="form-label fw-bold">participanteId:</label>
+      <input
+        formControlName="participanteId"
+        id="participanteId"
+        type="text"
+        class="form-control"
+        placeholder="Digite o Id do participante">
+      <div *ngIf="f['participanteId'].touched && f['participanteId'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['participanteId'].errors?.['required']">O Id do participante é necessário.</small>
+      </div>
+    </div>
+
+    <!-- jogoId -->
+    <div class="form-group mb-3">
+      <label class="form-label fw-bold">jogoId:</label>
+      <input
+        formControlName="jogoId"
+        id="jogoId"
+        type="text"
+        class="form-control"
+        placeholder="Digite o jogoId">
+      <div *ngIf="f['jogoId'].touched && f['jogoId'].invalid" class="text-danger mt-1">
+        <small *ngIf="f['jogoId'].errors?.['required']">O Id do jogo necessário.</small>
+      </div>
+    </div>
+
+
+
+    <!-- Botão -->
+    <div class="d-grid">
+      <button class="btn btn-primary btn-lg" type="submit" [disabled]="!form.valid">Salvar</button>
+    </div>
+  </form>
+</div>

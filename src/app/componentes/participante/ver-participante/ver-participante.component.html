@@ -1,0 +1,52 @@
+<div class="mat-elevation-z8" style="max-width: 900px; margin: 40px auto; padding: 30px; background: white; border-radius: 12px;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary mb-0">Detalhes do participante</h2>
+    <a routerLink="/participante" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+
+  @if (participante) {
+    <div class="row gy-3">
+      <!-- ID -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Id:</label>
+        <p class="form-control bg-light">{{ participante.id }}</p>
+      </div>
+
+      <!-- Nome -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Nome:</label>
+        <p class="form-control bg-light">{{ participante.nome }}</p>
+      </div>
+
+      <!-- email -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Email:</label>
+        <p class="form-control bg-light">{{ participante.email }}</p>
+      </div>
+
+      <!-- identificacao -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Identificacao:</label>
+        <p class="form-control bg-light">{{ participante.identificacao }}</p>
+      </div>
+
+      <!-- endereco -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Endereco:</label>
+        <p class="form-control bg-light">{{ participante.endereco }}</p>
+      </div>
+
+      <!-- Status -->
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Status:</label>
+        <p class="form-control bg-light">{{ participante.status }}</p>
+      </div>
+    </div>
+  } @else {
+    <div class="text-center py-4">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p class="mt-3">Carregando participante...</p>
+    </div>
+  }
+</div>
+

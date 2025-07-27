@@ -1,0 +1,19 @@
+<div class="app-container">
+  <!-- Painel Lateral  -->
+  <div class="crud-panel">
+    <h2 class="panel-title">CRUD PAINEL</h2>
+    <nav class="button-container">
+      <a *ngFor="let botao of painelBotoes"
+         [routerLink]="botao.route"
+         routerLinkActive="active"
+         class="panel-button">
+        <i class="material-icons">{{botao.icon}}</i>
+        <span>{{botao.label}}</span>
+      </a>
+    </nav>
+  </div>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
